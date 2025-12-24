@@ -1,0 +1,205 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f090ac;
+}
+
+header {
+    background-color: #f8c8dc;
+    text-align: center;
+    padding: 40px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 48px;
+    color: #8b2f5b;
+}
+
+nav {
+    background-color: #f3a6c8;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
+}
+
+nav a {
+    color: rgb(241, 235, 235);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.hero {
+    background-image: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6");
+    background-size: cover;
+    background-position: center;
+    color: rgb(182, 95, 95);
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(240, 144, 172, 0.2);
+    pointer-events: none;
+}
+
+.hero button {
+    background-color: #e75480;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero button:hover {
+    background-color: #d6406e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(231, 84, 128, 0.4);
+}
+
+.hero button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+.hero button:hover::before {
+    left: 100%;
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+footer {
+    background-color: #8b2f5b;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+
+@media (max-width: 1024px) {
+    .cards {
+        gap: 20px;
+        padding: 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 36px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+    }
+
+    nav a {
+        font-size: 18px;
+    }
+
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero button {
+        padding: 14px 30px;
+        font-size: 16px;
+    }
+
+    section {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 30px;
+    }
+
+    header h1 {
+        font-size: 30px;
+    }
+
+    .hero {
+        padding: 60px 15px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .card img {
+        height: 180px;
+    }
+}
