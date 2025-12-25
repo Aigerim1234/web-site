@@ -1,0 +1,52 @@
+"use strict";
+
+document.addEventListener("DOMContentLoaded", () => {
+  
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      const target = document.querySelector(href);
+      if (target && href !== "#") {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-10px)');
+    card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0)');
+  });
+
+  const orderForm = document.getElementById("orderForm");
+  const successModal = document.getElementById("successModal");
+  const closeModal = document.getElementById("closeModal");
+
+  if (orderForm && successModal) {
+    orderForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      successModal.style.display = "flex";
+    });
+  }
+
+  if (closeModal) closeModal.addEventListener("click", () => successModal.style.display = "none");
+
+  window.addEventListener("click", (e) => {
+    if (e.target === successModal) successModal.style.display = "none";
+  });
+});
+
+
+$(document).ready(function () {
+  $('a[href^="#"]').on('click', function (e) {
+    e.preventDefault();
+    const target = $(this.getAttribute('href'));
+    const navHeight = $('nav').outerHeight() || 0;
+    if (target.length) $('html, body').animate({ scrollTop: target.offset().top - navHeight }, 600);
+  });
+});
